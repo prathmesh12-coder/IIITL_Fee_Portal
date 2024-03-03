@@ -1,4 +1,4 @@
-# IIITL Fee Portal - README
+# IIITL Fee Portal
 
 ## Project Overview
 
