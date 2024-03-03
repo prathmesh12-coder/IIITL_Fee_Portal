@@ -1,0 +1,71 @@
+<div class="sidebar open">
+     <div class="logo-details">
+          <img src="/images/logo.png" alt="profileImg">
+          <div class="logo_name">IIITL Fees</div>
+          <i class='bx bx-menu-alt-right' id="btn"></i>
+     </div>
+     <ul class="nav-list" style="padding-left: 0px;">
+          <li>
+               <a href="/profile/" class="profile">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">View Profile</span>
+               </a>
+               <span class="tooltip">View Profile</span>
+          </li>
+
+          <li>
+               <a href="/pay_fees/" class="payFees">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Pay Fees</span>
+               </a>
+               <span class="tooltip">Pay Fees</span>
+          </li>
+
+          <li>
+               <a href="/payment_history/" class="history">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Payment History</span>
+               </a>
+               <span class="tooltip">Payment History</span>
+          </li>
+
+          <li>
+               <a href="/download_receipt/" class="reciept">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Download Receipt</span>
+               </a>
+               <span class="tooltip">Download Receipt</span>
+          </li>
+
+          <li>
+               <a href="/chat/" class="msgAdmin">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Chat with Admin</span>
+               </a>
+               <span class="tooltip">Chat with Admin</span>
+          </li>
+
+          <li>
+               <a href="/auth/logout" class="logout">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Logout</span>
+               </a>
+               <span class="tooltip">Logout</span>
+          </li>
+
+          <li class="profile">
+               <div class="profile-details">
+                    <img src=<%=picture %> alt="profileImg">
+                    <div class="name_job">
+                         <div class="name">
+                              <%= userName %>
+                         </div>
+                         <div class="job">
+                              <%= rollNumber %>
+                         </div>
+                    </div>
+               </div>
+               <i class='bx bx-user' id="log_out"></i>
+          </li>
+     </ul>
+</div>

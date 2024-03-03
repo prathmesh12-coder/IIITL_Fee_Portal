@@ -1,0 +1,80 @@
+<div class="sidebar open">
+     <div class="logo-details">
+          <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+          <img src="/images/logo.png" alt="profileImg">
+          <div class="logo_name">IIITL Fees</div>
+          <i class='bx bx-menu-alt-right' id="btn"></i>
+     </div>
+     <ul class="nav-list" style="padding-left: 0px;">
+          <li>
+               <a href="/dashboard/" class="dashboard">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Dashboard</span>
+               </a>
+               <span class="tooltip">Dashboard</span>
+          </li>
+
+          <li>
+               <a href="/search_student_details/" class="search">
+                    <i class='bx bx-search'></i>
+                    <span class="links_name">Search</span>
+               </a>
+               <span class="tooltip">Search</span>
+          </li>
+
+          <li>
+               <a href="/send_payment_link/">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Send Payment Link</span>
+               </a>
+               <span class="tooltip">Send Payment Link</span>
+          </li>
+
+          <!-- <li>
+               <a href="/payment_confirmation/">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Payment Confirmation</span>
+               </a>
+               <span class="tooltip">Payment Confirmation</span>
+          </li> -->
+
+          <li>
+               <a href="/answer_queries/">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Answer Queries</span>
+               </a>
+               <span class="tooltip">Answer Queries</span>
+          </li>
+
+          <li>
+               <a href="/add_student/">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Add Batch</span>
+               </a>
+               <span class="tooltip">Add Students</span>
+          </li>
+
+          <li>
+               <a href="/auth/logout">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Logout</span>
+               </a>
+               <span class="tooltip">Logout</span>
+          </li>
+
+          <li class="profile">
+               <div class="profile-details">
+                    <img src="/images/photo.jpg" alt="profileImg">
+                    <div class="name_job">
+                         <div class="name">
+                              <%= userName %>
+                         </div>
+                         <div class="job">
+                              <%= rollNumber %>
+                         </div>
+                    </div>
+               </div>
+               <i class='bx bx-user down' id="log_out"></i>
+          </li>
+     </ul>
+</div>

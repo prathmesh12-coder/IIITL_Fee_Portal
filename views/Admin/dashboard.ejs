@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <title>Dashboard | IIITL Fees</title>
+</head>
+
+<body>
+
+    <%- include("./partials/sidebar") %>
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+                    <div class="bottom">
+                        <div class="section-title">Dashboard</div>
+                        <div class="cards">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="number">
+                                        <%= batchSize %>
+                                    </div>
+                                    <div class="card-name">Batches</div>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="number">
+                                        <%= totalStudents %>
+                                    </div>
+                                    <div class="card-name">Students</div>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="number"><i class="bx bx-rupee"></i>
+                                        <%= dashboardData.feesPending %>
+                                    </div>
+                                    <div class="card-name">Fees Pending</div>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="bx"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="number"><i class="bx bx-rupee"></i>
+                                        <%= dashboardData.feesPaid %>
+                                    </div>
+                                    <div class="card-name">Fees Paid</div>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="bx"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="charts">
+                            <div class="chart">
+                                <h2>Fees Collected (Past 12 Months)</h2>
+                                <div>
+                                    <canvas id="lineChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart doughnut-chart">
+                                <h2>Fees Type</h2>
+                                <div>
+                                    <canvas id="doughnut"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+        <script src="/scripts/sidebar.js"></script>
+        <!-- <script src="/Admin/Charts/chart1.js"></script> -->
+        <!-- chart 2 -->
+        <script>
+            let ctx2 = document.getElementById("doughnut").getContext("2d");
+            let myChart2 = new Chart(ctx2, {
+                type: "doughnut",
+                data: {
+                    labels: ["Semester", "Messs", "Fine or Due"],
+                    datasets: [
+                        {
+                            label: "Fees Type",
+                            data: [<%= dashboardData.chart2Data %>],
+                            backgroundColor: [
+                                "rgba(54, 162, 235, 1)",
+                                "rgba(41, 155, 99, 1)",
+                                "rgba(255, 206, 86, 1)",
+                            ],
+                            borderColor: [
+                                "rgba(54, 162, 235, 1)",
+                                "rgba(41, 155, 99, 1)",
+                                "rgba(255, 206, 86, 1)",
+                            ],
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                },
+            });
+
+        </script>
+        <!-- chart 1 -->
+        <script>
+            let ctx = document.getElementById("lineChart").getContext("2d");
+            let myChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec",
+                    ],
+                    datasets: [
+                        {
+                            label: "Earnings in ₹",
+                            data: [
+                               <%=  dashboardData.monthlyFeesCollected %>
+                            ],
+                            backgroundColor: ["rgba(85,85,85, 1)"],
+                            borderColor: "rgb(41, 155, 99)",
+
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                },
+            });
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/payment_confirmation.css">
+    <title>Payment Confirmation | IIITL Fees</title>
+</head>
+
+<body>
+
+    <%- include("./partials/sidebar") %>
+
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+                    <div class="bottom">
+                        <div class="section-title">Payment Confirmation</div>
+                        <form action="/payment_confirmation" method="POST" enctype="multipart/form-data">
+                            <div class="form">
+
+                                <div>
+                                    <label for="rollno">Roll No <span class="text-danger">*</span></label>
+                                    <input required type="text" name="roll" id="rollno" value=<%=formData.studentRoll %>
+                                    placeholder="Enter Roll No">
+                                </div>
+
+                                <div>
+                                    <label for="email">Email ID <span class="text-danger">*</span></label>
+                                    <input required type="email" name="email" value=<%=formData.studentEmail %>
+                                    id="email"
+                                    placeholder="Enter Email ID">
+                                </div>
+
+                                <div>
+                                    <label for="amount">Amount Paid</label>
+                                    <input type="number" name="amount" value=<%=formData.amount + formData.fineAmount %>
+                                    class="feesamount"
+                                    id="amount"
+                                    placeholder="Enter Amount">
+                                </div>
+
+                                <div>
+                                    <label for="trxID">SBCollect Reference Number</label>
+                                    <input type="text" name="SBIref" id="trxID" placeholder="Reference Number">
+                                </div>
+
+                                <div>
+                                    <label for="semester">Semester</label>
+                                    <%=formData.semNo %>
+                                </div>
+
+                                <div>
+                                    <label>Type of Fee</label>
+                                    <%=formData.feeType %>
+                                </div>
+                                <input type="hidden" name="transID" value=<%=formData.transID %>>
+                                <div>
+                                    <label for="datepaid">Fees Paid Date</label>
+                                    <input type="date" name="paymentDate" id="datepaid" name="paymentDate">
+                                </div>
+
+                                <div>
+                                    <label for="reciept">Upload Reciept (in PDF)</label>
+                                    <input type="file" id="reciept" name="reciept" class="reciept">
+                                    <!-- accept="application/pdf"> -->
+                                </div>
+
+                                <div class="formButton">
+                                    <input type="reset" class="resetbtn">
+                                    <input type="submit" value="Submit" class="submitbtn">
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="/scripts/sidebar.js"></script>
+</body>
+
+</html>

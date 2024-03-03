@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;600;700&display=swap');
+
+.main-title {
+    background: #609966;
+    color: #fff;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-title .hellotitle {
+    margin-left: 35px;
+    font-size: var(--h3-font-size);
+    font-weight: 600;
+}
+
+.main-title .logoutbtn a {
+    color: black;
+}
+
+.main-title .logoutbtn {
+    background-color: #EDF1D6;
+    padding: 7px 15px 7px 15px;
+    margin-right: 30px;
+    font-weight: 550;
+    border-radius: 5px;
+}
+
+.bottom {
+    background-color: #fdfff3;
+    padding: 10px;
+    margin: 10px 20px 10px 20px;
+    border-radius: 5px;
+    min-height: 640px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 25px 10px 0px 10px;
+}
+
+.form input:not(.submitbtn, .resetbtn) {
+    color: #40513B;
+}
+
+.form input:not(.sem, .mess, .due, .feespaid, .feespending, .submitbtn, .resetbtn),
+.form .semester {
+    width: 300px;
+    border-radius: 5px;
+    outline: none;
+    border: 0.5px solid #40513B;
+    padding: 2px 1px 2px 7px;
+}
+
+.form input.reciept {
+    border: none;
+}
+
+.form label:not(.sem, .mess, .due, .feespaid, .feespending) {
+    width: 270px;
+    color: #40513B;
+}
+
+.form label.sem,
+label.due,
+label.mess,
+label.feespaid,
+label.feespending {
+    padding: 0px 25px 0px 2px;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #fdfff3;
+    background-color: #9DC08B;
+    cursor: pointer;
+    padding: 3px 7px;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #609966;
+
+}
+
+.form div:not(.formtitle, .formButton) {
+    margin: 7px 5px;
+}
+
+.formtitle {
+    margin: 5px auto 5px auto;
+    font-size: var(--h3-font-size);
+    font-weight: 550;
+}
+
+.formButton {
+    margin: 30px auto 5px auto;
+}
+
+.resetbtn,
+.submitbtn {
+    outline: none;
+    border: none;
+    background-color: #9DC08B;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fdfff3;
+    margin: 0 10px;
+}
+
+.resetbtn:hover,
+.submitbtn:hover {
+    background-color: #609966;
+}
+
+/* cards */
+.cards {
+    width: 100%;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.cards .card {
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #fbfcf5;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.cards .card:hover{
+    background-color: #fafee6;
+}
+
+.number {
+    font-size: 35px;
+    font-weight: 500;
+    color: #299B63;
+}
+
+.card-name {
+    color: #888;
+    font-weight: 600;
+}
+
+.icon-box i {
+    font-size: 45px;
+    color: #299b63;
+}
+
+/* charts */
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    padding-bottom: 0px;
+}
+
+.chart {
+    background-color: #fafbf7;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    margin: 15px 0px 0px 0px;
+}
+
+.chart h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #666;
+    text-align: center
+}
+

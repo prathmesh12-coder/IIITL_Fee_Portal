@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/pay_fees.css">
+    <title>Payment History | IIITL Fees</title>
+</head>
+
+<body>
+    <%- include("./partials/sidebar") %>
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+
+                    <div class="top">
+                        <div class="info">
+                            <p><span># GUDLINES BEFORE PAYING FEES</span></p>
+                            <p class="content">1. If a student is unable to pay their fees by the due date, a fine will
+                                be
+                                applied as follows: a fine of 1000 will be charged for the next 5 days after the due
+                                date,
+                                and a fine of 5000 will be charged for the following 5 days.</p>
+                            <p class="content">2. For Semester Fees and Fine Fees, first select Educational Institute
+                                then
+                                select State as <span>Uttar Pradesh</span> and Payee as <span>Indian Institute of
+                                    Information Technology, Lucknow.</span></p>
+                            <p class="content">3. For Mess Fees, select <span>Educational Institute</span> then select
+                                State
+                                as <span>Uttar Pradesh</span> and Payee as <span>IIITL Mess Account.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="payFees_container bd-grid">
+                            <% for(let i=0;i<data.length;i++) { %>
+                                <div class="payFees_data">
+                                    <div class="info">
+                                        <p> Amount : <span class="amount">
+                                                <%= data[i].amount%>
+                                            </span></p>
+                                        <p> Late Fine : <span class="amount">
+                                                <%= data[i].fineAmount%>
+                                            </span></p>
+                                        <p>Semester : <span class="semester">
+                                                <%= data[i].semNo %>
+                                            </span></p>
+                                        <p> Type of Fees : <span class="type">
+                                                <%= data[i].feeType %>
+                                            </span></p>
+                                        <p>Due Date : <span class="dueDate">
+                                                <%= data[i].dueDate %>
+                                            </span></p>
+                                        <p>Status : <span class="status">
+                                                <%= data[i].feeStatus %>
+                                            </span></p>
+                                    </div>
+                                    <button class="payBtn"><a href=<%=data[i].paymentLink %> class="payLink"
+                                            target="_blank">Pay
+                                            Fees</a></button>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="/scripts/sidebar.js"></script>
+</body>
+
+</html>

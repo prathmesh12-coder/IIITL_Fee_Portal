@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/search_student_details.css">
+    <title>Search Student | IIITL Fees</title>
+</head>
+
+<body>
+
+    <%- include("./partials/sidebar") %>
+
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+                    <form method="POST" action="/search_student_details">
+                        <div class="top">
+                            <div>
+                                <input type="text" name="rollNumber" class="searchstd" placeholder="Search Student...">
+                            </div>
+                            <div>
+                                <button type="submit" class="searchbtn">Search</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <div class="bottom">
+                        <% if(data==null && valid=="" ){ %>
+                            <p id="tablepara">Nothing to show! Please enter student roll to see details...</p>
+                            <% } else if(valid!="" ){ %>
+                                <p id="tablepara">
+                                    <%= valid %>
+                                </p>
+                                <% } else { %>
+                                    <div class="studentdetails">
+                                        <div class="info">
+                                            <p> Name of Student : <span>
+                                                    <%= studentName %>
+                                                </span></p>
+                                            <p> Roll No : <span>
+                                                    <%= studentRoll %>
+                                                </span></p>
+                                        </div>
+                                        <div class="stdtable">
+                                            <table id="tableHead" class="table table-striped">
+                                                <thead class="table-success">
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Transaction Details</th>
+                                                        <th scope="col">Amount</th>
+                                                        <th scope="col">Late Fine</th>
+                                                        <th scope="col">Semester</th>
+                                                        <th scope="col">Fees Type</th>
+                                                        <th scope="col">Fees Paid Date</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Edit Payment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id='tableBody'>
+                                                    <% for(let i=0;i<data.length;i++) { %>
+                                                        <tr class="feesrow">
+                                                            <td>
+                                                                <%= i+1 %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].SBIref=="" ?"-":data[i].SBIref %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].amount %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].fineAmount==0?"-":data[i].fineAmount %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].semNo %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].feeType %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].feeStatus=="pending"
+                                                                    ?"-":data[i].paymentDate %>
+                                                            </td>
+                                                            <td>
+                                                                <%= data[i].feeStatus %>
+                                                            </td>
+                                                            <td>
+                                                                <form action="/payment_confirmation" method="GET">
+                                                                    <input type="hidden" name="studentEmail"
+                                                                        value=<%=studentEmail %>>
+                                                                    <input type="hidden" name="studentRoll"
+                                                                        value=<%=studentRoll %>>
+                                                                    <input type="hidden" name="transID"
+                                                                        value=<%=data[i]._id %>>
+                                                                    <button id="edit1"
+                                                                        class="btn btn-success">Edit</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="/scripts/sidebar.js"></script>
+</body>
+
+</html>

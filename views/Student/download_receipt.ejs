@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/download_receipt.css">
+    <title>Download Receipt | IIITL Fees</title>
+</head>
+
+<body>
+    <%- include("./partials/sidebar") %>
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+
+                    <div class="bottom">
+                        <div class="section-title">Download Receipt</div>
+                        <div class="reciept__container">
+                            <% for(let i=0;i<data.length;i++) { %>
+                                <div class="reciept__content">
+                                    <div class="info">
+                                        <p> Amount : <span class="amount">
+                                                <%= data[i].amount %>
+                                            </span>
+                                        </p>
+                                        <p>Semester : <span class="semester">
+                                                <%= data[i].semNo %>
+                                            </span></p>
+                                        <p> Type of Fees : <span class="type">
+                                                <%= data[i].feeType %>
+                                            </span></p>
+                                        <p>Fees Paid Date : <span class="paidDate">
+                                                <%= data[i].paymentDate %>
+                                            </span></p>
+                                        <p>Status : <span class="status">
+                                                <%= data[i].feeStatus %>
+                                            </span></p>
+                                    </div>
+                                    <a href="<%= data[i].receiptURL %>" class="reciept__button" target="_blank"><i
+                                            class='bx bxs-download'></i></a>
+                                </div>
+                                <% } %>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="/scripts/sidebar.js"></script>
+</body>
+
+</html>

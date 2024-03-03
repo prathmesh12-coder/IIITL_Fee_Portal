@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;600;700&display=swap");
+
+.main-title {
+  background: #609966;
+  color: #fff;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-title .hellotitle {
+  margin-left: 35px;
+  font-size: var(--h3-font-size);
+  font-weight: 600;
+}
+
+.main-title .logoutbtn a {
+  color: black;
+}
+
+.main-title .logoutbtn {
+  background-color: #edf1d6;
+  padding: 7px 15px 7px 15px;
+  margin-right: 30px;
+  font-weight: 550;
+  border-radius: 5px;
+}
+
+.top {
+  /* background-color: red; */
+  padding: 8px 0 8px 0;
+  margin: 10px 20px 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom {
+  background-color: #fdfff3;
+  padding: 10px;
+  margin: 10px 20px 10px 20px;
+  border-radius: 5px;
+  min-height: 570px;
+}
+
+.searchstd {
+  outline: none;
+  width: 1050px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  font-size: var(--normal-font-size);
+  padding-left: 10px;
+  background-color: #fdfff3;
+}
+
+.searchbtn {
+  outline: none;
+  border: none;
+  background-color: #fdfff3;
+  padding: 7px 15px 7px 15px;
+  font-size: var(--normal-font-size);
+  font-weight: 500;
+  border-radius: 5px;
+  height: 45px;
+  width: 180px;
+}
+
+.studentdetails .info p {
+  margin: 10px;
+}
+.studentdetails .info p span {
+  font-weight: 600;
+}
+
+.table {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.table a {
+  color: #fff;
+}

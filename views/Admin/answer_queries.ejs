@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/answer_queries.css">
+    <title>Answer Queries | IIITL Fees</title>
+</head>
+
+<body>
+    <%- include("./partials/sidebar") %>
+        <div class="home-section">
+            <%- include("./partials/navbar") %>
+                <div class="main-section">
+                    <div class="bottom">
+                        <div class="section-title">Answer Queries</div>
+                        <div class="col-lg-10 chatcontainer">
+                            <div class="accordion accordion-flush chatbox" id="accordionFlushExample">
+                                <% orderedChats.forEach((obj)=> { %>
+                                    <% if(obj.chat.length>0) {%>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button collapsed bt frontchat" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                                    <%= obj.senderEmail %>
+                                                        <div class="circle">
+                                                            <%= obj.unreadCount %>
+                                                        </div>
+                                                        <form action="/deleteChat" method="post">
+                                                            <input type="hidden" class="message-input" name="textEmail"
+                                                                value=<%=obj.senderEmail %>>
+                                                            <input type="submit" value="Delete" class="submitbtn">
+                                                        </form>
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                                aria-labelledby="flush-headingOne"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body innerchat">
+                                                    <div class="chat-container">
+                                                        <div class="chat-history">
+                                                            <ul class="message-list">
+                                                                <% obj.chat.forEach((message)=> { %>
+                                                                    <% if(message.textEmail==email){ %>
+                                                                        <li class="message-item sent">
+                                                                            <div class="message-text">
+                                                                                <%= message.message %>
+                                                                            </div>
+                                                                        </li>
+                                                                        <% }else{ %>
+                                                                            <li class="message-item received">
+                                                                                <div class="message-text">
+                                                                                    <%= message.message %>
+                                                                                </div>
+                                                                            </li>
+                                                                            <% }%>
+                                                                                <% }) %>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="chat-message">
+                                                            <form class="chat-message-form" action="/answer_queries"
+                                                                method="POST">
+                                                                <input type="hidden" class="message-input"
+                                                                    name="textEmail" value=<%=obj.senderEmail %>>
+                                                                <input type="text" class="message-input" name="message"
+                                                                    autocomplete="off"
+                                                                    placeholder="Type your message...">
+                                                                <button class="message-send">Send</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <% }})%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="/scripts/sidebar.js"></script>
+</body>
+
+</html>

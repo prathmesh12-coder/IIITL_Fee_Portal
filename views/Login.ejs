@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="633759563715-oujqtbtouoiq8jvmhurheug26mt98o8c.apps.googleusercontent.com">
+    <title>Login | Signup</title>
+    <link rel="stylesheet" href="/styles/login_style.css">
+    <script src="https://kit.fontawesome.com/9b3a6cd3b9.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- <div class="close">
+            <ion-icon name="close-outline"></ion-icon>
+        </div> -->
+        <div class="form-container sign-in-form">
+            <div class="form-box sign-in-box">
+                <h2>Login</h2>
+                <form action="/Login" method="POST">
+                    <div class="field">
+                        <ion-icon name="mail-outline" class="icon"></ion-icon>
+                        <input type="email" name="email" id="" placeholder="Email ID" required>
+                    </div>
+
+                    <div class="field">
+                        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+                        <input type="password" name="password" class="password-input" placeholder="Password" required>
+                        <div class="eye-btn">
+                            <ion-icon name="eye-off-outline" class="icon"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="forgot-link">
+                        <a href="">Forgot password?</a>
+                    </div>
+                    <input type="submit" name="" class="submit-btn" value="Login">
+                </form>
+
+                <div class="login-options">
+                    <p class="text">
+                        Or, login with . . .
+                    </p>
+                    <div class="other-logins">
+                        <a href="/auth/google"><img src="/images/Google.png" alt="Google"></a>
+                        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                        <!-- <a href=""><img src="Img/Facebook.png" alt="Facebook"></a>
+                        <a href=""><img src="Img/LinkedIN.png" alt="LinkedIn"></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="imgBox sign-in-imgBox">
+                <div class="sliding-link">
+                    <p>Don't have an account?</p>
+                    <span class="sign-up-btn">Sign up</span>
+                </div>
+                <img src="/images/signup.svg" alt="SignUP">
+            </div>
+        </div>
+
+        <div class="form-container sign-up-form">
+            <div class="imgBox sign-up-imgBox">
+                <div class="sliding-link">
+                    <p>Already a User?</p>
+                    <span class="sign-in-btn">Sign In</span>
+                </div>
+                <img src="/images/login.svg" alt="SignUP">
+            </div>
+
+
+            <div class="form-box sign-up-box">
+                <h2>Sign Up</h2>
+                <div class="login-options">
+                    <div class="other-logins">
+                        <a href="/auth/google"><img src="/images/Google.png" alt="Google"></a>
+                        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                        <!-- <a href=""><img src="Img/Facebook.png" alt="Facebook"></a>
+                        <a href=""><img src="Img/LinkedIN.png" alt="LinkedIn"></a> -->
+                    </div>
+                    <p class="text">
+                        Or, Sign Up with Email . . .
+                    </p>
+                </div>
+                <form action="/signUp" method="POST">
+                    <div class="field">
+                        <ion-icon name="mail-outline" class="icon"></ion-icon>
+                        <input type="email" name="email" id="emailid" placeholder="Email ID" required>
+                    </div>
+
+                    <div class="field">
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
+                        <input type="text" name="username" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="field">
+                        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="field">
+                        <ion-icon name="apps-outline" class="icon"></ion-icon>
+                        <input type="password" name="confirmpassword" placeholder="Confirm Password" required>
+                    </div>
+
+                    <input type="submit" name="" class="submit-btn" value="Sign Up">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scripts/login_script.js"></script>
+</body>
+
+</html>
